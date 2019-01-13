@@ -14,14 +14,15 @@ def config_db():
 
 
 class Flight(db.Model):
-    __tablename = "flights"
+    __tablename__ = "flights"
     id = db.Column(db.Integer, primary_key=True)
     origin = db.Column(db.String, nullable=False)
-    destination = db.Column(db.String, nullable=False)
+    destinition = db.Column(db.String, nullable=False)
     duration = db.Column(db.Integer, nullable=False)
+
 
 class Passenger(db.Model):
     __tablename__ = "passengers"
-    name = db.Column(db.String, nullable=False)
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
     flight_id = db.Column(db.Integer, db.ForeignKey("flights.id"), nullable=False)
